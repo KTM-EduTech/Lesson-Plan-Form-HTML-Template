@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Plan Form</title>
+
+    <!-- Include TinyMCE from the official CDN -->
+    <script src="https://cdn.tiny.cloud/1/7p0hw9eejcycl2xv81k4j8dugz5h268xxbmbqqt2zpsrlgyh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'lists link',
+            toolbar: 'undo redo | bold italic | bullist numlist | link',
+        });
+    </script>
+
+    <!-- CSS Styles -->
+    <style>
+        /* CSS styles using root variables */
+        :root {
+            --font-oswald: "Oswald", sans-serif;
+            --font-poppins: "Poppins", sans-serif;
+            --font-abel: "Abel", sans-serif;
+
+            --color-primary: #e91a1a;
+            --color-secondary: #407cdc;
+            --color-text: #123456;
+            --color-highlight: #d4af37;
+            --gradient-color1: #d4af37;
+            --gradient-color2: #fedc69;
+
+            --font-size-title: 35px;
+            --font-size-h2: 28px;
+            --font-size-h3: 23px;
+            --font-size-h4: 20px;
+            --font-size-body: 12px;
+            --font-size-meta: 9px;
+
+            --font-weight-light: 100;
+            --font-weight-medium: 400;
+            --font-weight-bold: 900;
+
+            --border-radius-card: 5px;
+            --padding-general: 5px 15px 15px 15px;
+            --divider-thickness: 1px;
+            --tag-padding: 15px;
+        }
+
+        body {
+            font-family: var(--font-poppins);
+            color: var(--color-text);
+            padding: var(--padding-general);
+            font-weight: var(--font-weight-light);
+        }
+
+        h1 {
+            font-family: var(--font-oswald);
+            font-size: var(--font-size-title);
+            color: var(--color-primary);
+        }
+
+        h2, h3, h4 {
+            font-family: var(--font-abel);
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: var(--font-size-h2);
+            color: var(--color-secondary);
+        }
+
+        form {
+            padding: var(--padding-general);
+            background-color: #f9f9f9;
+            border-radius: var(--border-radius-card);
+        }
+
+        label {
+            font-family: var(--font-abel);
+            font-size: var(--font-size-h4);
+            color: var(--color-secondary);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius-card);
+            border: 1px solid #ccc;
+            font-family: var(--font-poppins);
+        }
+
+        .divider {
+            border: var(--divider-thickness) solid;
+            background: linear-gradient(90deg, var(--gradient-color1), var(--gradient-color2), var(--gradient-color1));
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: var(--color-primary);
+            color: white;
+            font-family: var(--font-oswald);
+            border: none;
+            border-radius: var(--border-radius-card);
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: var(--color-highlight);
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lesson Plan Form</h1>
+
+<form action="#" method="POST">
+    <label for="lesson-title">Lesson Title (required)</label>
+    <input type="text" id="lesson-title" name="lesson-title" placeholder="Lesson Title" required>
+
+    <label for="lesson-subtopic">Lesson Subtopic (required)</label>
+    <input type="text" id="lesson-subtopic" name="lesson-subtopic" placeholder="Lesson Subtopic" required>
+
+    <label for="learning-group">Learning Group (required)</label>
+    <select id="learning-group" name="learning-group" multiple required>
+        <option value="K2">K2</option>
+        <option value="K3">K3</option>
+        <option value="P1">P1</option>
+        <option value="P2">P2</option>
+        <option value="P3">P3</option>
+        <option value="P4">P4</option>
+        <option value="P5">P5</option>
+        <option value="P6">P6</option>
+    </select>
+
+    <label for="subject-relevance">Subject Relevance (required)</label>
+    <select id="subject-relevance" name="subject-relevance" multiple required>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Digital Citizenship">Digital Citizenship</option>
+        <option value="Mathematics">Mathematics</option>
+        <option value="Science">Science</option>
+        <option value="Music">Music</option>
+        <option value="Physical Education">Physical Education</option>
+        <option value="Civics and Culture">Civics and Culture</option>
+        <option value="Social Studies">Social Studies</option>
+        <option value="Arts">Arts</option>
+    </select>
+
+    <div class="divider"></div>
+
+    <h2>Section 1 - Keywords and Vocabulary</h2>
+    <label for="input-keywords">Keywords</label>
+    <textarea id="input-keywords" name="input-keywords" placeholder="Keywords" rows="10" cols="50"></textarea>
+
+    <h2>Section 2 - Brief Overview and Objectives</h2>
+    <label for="input-overview">Overview</label>
+    <textarea id="input-overview" name="input-overview" placeholder="Overview" rows="10" cols="50"></textarea>
+
+    <label for="input-smart-objectives">SMART Objectives</label>
+    <textarea id="input-smart-objectives" name="input-smart-objectives" placeholder="SMART Objectives" rows="10" cols="50"></textarea>
+
+    <div class="divider"></div>
+
+    <h2>Section 3 - Lesson Proper and Practice</h2>
+    <label for="input-introduction">Lesson Introductions</label>
+    <textarea id="input-introduction" name="input-introduction" placeholder="Lesson Introductions" rows="10" cols="30"></textarea>
+
+    <label for="input-developments">Lesson Developments</label>
+    <textarea id="input-developments" name="input-developments" placeholder="Lesson Developments" rows="10" cols="30"></textarea>
+
+    <label for="input-assessments">Formative Assessments</label>
+    <textarea id="input-assessments" name="input-assessments" placeholder="Formative Assessments" rows="10" cols="30"></textarea>
+
+    <label for="input-differentiations">Learning Differentiations</label>
+    <textarea id="input-differentiations" name="input-differentiations" placeholder="Learning Differentiations" rows="10" cols="30"></textarea>
+
+    <div class="divider"></div>
+
+    <h2>Section 4 - Lesson Closure</h2>
+    <label for="input-closure">Lesson Closure</label>
+    <textarea id="input-closure" name="input-closure" placeholder="Lesson Closure" rows="10" cols="30"></textarea>
+
+    <h2>Section 5 - Lesson Integration</h2>
+    <label for="input-integration">Lesson Integration</label>
+    <textarea id="input-integration" name="input-integration" placeholder="Lesson Integration" rows="10" cols="30"></textarea>
+
+    <div class="divider"></div>
+
+    <h2>Section 6 - Lesson Reflections</h2>
+    <label for="input-reflections">Lesson Reflections</label>
+    <textarea id="input-reflections" name="input-reflections" placeholder="Lesson Reflections" rows="10" cols="30"></textarea>
+    
+    <br>
+    <button type="submit">INJECT HTML</button>
+</form>
+
+</body>
+</html>

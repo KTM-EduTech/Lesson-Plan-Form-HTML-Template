@@ -198,5 +198,75 @@
     <button type="submit">INJECT HTML</button>
 </form>
 
+<!-- TEMPLATE -->
+        <div id="template">
+        <h1>Lesson Plan</h1>
+        <div class="divider"></div>
+
+        <p><strong>Title:</strong> <span id="inject-title"></span></p>
+        <p><strong>Sub-Topic:</strong> <span id="inject-subtopic"></span></p>
+
+        <h3>SECTION 1 - Keywords and Vocabulary</h3>
+        <p><strong>Keywords:</strong> <span id="inject-keywords"></span></p>
+
+        <h3>SECTION 2 - Brief Overview and Objectives</h3>
+        <p><strong>Overview:</strong> <span id="inject-overview"></span></p>
+        <p><strong>SMART Objectives:</strong> <span id="inject-objectives"></span></p>
+
+        <h3>SECTION 3 - Lesson Proper and Practice</h3>
+        <p><strong>Lesson Introductions:</strong> <span id="inject-introduction"></span></p>
+        <p><strong>Lesson Developments:</strong> <span id="inject-developments"></span></p>
+        <p><strong>Formative Assessments:</strong> <span id="inject-assessments"></span></p>
+        <p><strong>Learning Differentiations:</strong> <span id="inject-differentiations"></span></p>
+
+        <h3>SECTION 4 - Lesson Closure</h3>
+        <p><strong>Lesson Closure:</strong> <span id="inject-closure"></span></p>
+
+        <h3>SECTION 5 - Lesson Integration</h3>
+        <p><strong>Lesson Integration:</strong> <span id="inject-integration"></span></p>
+
+        <h3>SECTION 6 - Lesson Reflections</h3>
+        <p><strong>Lesson Reflections:</strong> <span id="inject-reflections"></span></p>
+    </div>
+
+    <script>
+        // A function to inject form data into the template
+        function injectFormData() {
+            // Get form data (replace this with actual form values from your form)
+            const lessonTitle = document.getElementById('lesson-title').value;
+            const lessonSubtopic = document.getElementById('lesson-subtopic').value;
+            const keywords = document.getElementById('input-keywords').value;
+            const overview = document.getElementById('input-overview').value;
+            const objectives = document.getElementById('input-smart-objectives').value;
+            const introduction = document.getElementById('input-introduction').value;
+            const developments = document.getElementById('input-developments').value;
+            const assessments = document.getElementById('input-assessments').value;
+            const differentiations = document.getElementById('input-differentiations').value;
+            const closure = document.getElementById('input-closure').value;
+            const integration = document.getElementById('input-integration').value;
+            const reflections = document.getElementById('input-reflections').value;
+
+            // Inject the values into the template
+            document.getElementById('inject-title').textContent = lessonTitle;
+            document.getElementById('inject-subtopic').textContent = lessonSubtopic;
+            document.getElementById('inject-keywords').textContent = keywords;
+            document.getElementById('inject-overview').textContent = overview;
+            document.getElementById('inject-objectives').textContent = objectives;
+            document.getElementById('inject-introduction').textContent = introduction;
+            document.getElementById('inject-developments').textContent = developments;
+            document.getElementById('inject-assessments').textContent = assessments;
+            document.getElementById('inject-differentiations').textContent = differentiations;
+            document.getElementById('inject-closure').textContent = closure;
+            document.getElementById('inject-integration').textContent = integration;
+            document.getElementById('inject-reflections').textContent = reflections;
+        }
+
+        // Optional: You could trigger this on form submit
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            injectFormData(); // Call the function to inject data
+        });
+    </script>
+
 </body>
 </html>

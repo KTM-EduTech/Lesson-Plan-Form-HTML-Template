@@ -1,0 +1,185 @@
+/* FORM LESSON MATADATA INPUT STYLES */
+/* General Form Container Styles */
+.form-container {
+    background-color: #ebe7e6; /* Background for form container */
+    border-radius: var(--border-radius-card); /* Rounded corners */
+    padding: var(--padding-general); /* General padding */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+.example-select {
+    font-family: var(--font-poppins);
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Allow items to wrap when necessary */
+    width: 100%; /* Take up the full width of the parent container */
+    background: none;
+    border: none;
+    height: auto; /* Allow height to grow based on content */
+    padding: 10px; /* Optional: add padding if needed */
+    box-sizing: border-box; /* Ensure padding is included within the width */
+}
+.example-select option {
+    flex: 1 1 auto; /* Allow flex items to shrink and grow as needed */
+    margin: 5px; /* Space between items */
+    min-width: 150px; /* Set a minimum width for each item */
+}
+/* Custom Scrollbar for WebKit (Chrome, Edge, Safari) */
+.example-select {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: var(--color-primary) var(--color-secondary); /* Thumb and track color */
+
+    /* Webkit browsers */
+    overflow-y: auto; /* Ensure scrollbar is visible when needed */
+}
+
+.example-select::-webkit-scrollbar {
+    width: 10px; /* Set scrollbar width */
+}
+
+.example-select::-webkit-scrollbar-track {
+    background-color: var(--color-secondary); /* Track color */
+}
+
+.example-select::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary); /* Thumb (scroll handle) color */
+    border-radius: 5px; /* Optional: rounded corners */
+}
+
+.example-select::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-highlight); /* Change color on hover */
+}
+
+/* Headings */
+.form-container h1 {
+    font-family: var(--font-abel);
+    font-size: var(--font-size-title);
+    color: var(--color-primary);
+    margin-bottom: 0;
+}
+
+.form-container h2 {
+    font-family: var(--font-oswald);
+    font-size: var(--font-size-h2);
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+}
+
+.form-container h3 {
+    font-family: var(--font-poppins);
+    font-size: var(--font-size-h3);
+    color: var(--color-text);
+    margin-bottom: 6px;
+}
+
+.form-container h4 {
+    font-family: var(--font-poppins);
+    font-size: var(--font-size-h4);
+    color: var(--color-text);
+    margin-bottom: 4px;
+}
+
+.form-container h5 {
+    font-family: var(--font-abel);
+    font-size: var(--font-size-body);
+    color: var(--color-text);
+    margin-bottom: 2px;
+}
+
+.form-container h6 {
+    font-family: var(--font-abel);
+    font-size: var(--font-size-meta);
+    color: var(--color-text);
+    margin-bottom: 2px;
+}
+
+/* Paragraphs */
+.form-container p {
+    font-family: var(--font-poppins);
+    font-size: var(--font-size-body);
+    color: var(--color-text);
+    margin: 10px 0;
+}
+
+/* Lists */
+.form-container ul,
+.form-container ol {
+    font-family: var(--font-poppins);
+    font-size: var(--font-size-body);
+    color: var(--color-text);
+    margin: 10px 0 10px 20px; /* Indent list items */
+}
+
+/* Links */
+.form-container a {
+    font-family: var(--font-poppins);
+    font-size: var(--font-size-body);
+    color: var(--color-secondary);
+    text-decoration: none; /* No underline */
+}
+
+.form-container a:hover {
+    color: var(--color-highlight);
+}
+
+/* Labels */
+.form-container label {
+    font-family: var(--font-oswald);
+    font-size: var(--font-size-body);
+    color: var(--color-text);
+    text-transform: uppercase;
+    display: block; /* Block display for labels */
+    margin-bottom: 5px; /* Spacing below labels */
+    padding: 5px 10px 0 0;
+}
+
+/* Inputs and Textareas */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container textarea {
+    width: 97%; /* Full width inputs */
+    padding: 10px; /* Internal padding */
+    border: 1px solid var(--color-text); /* Border color */
+    border-radius: var(--border-radius-card); /* Rounded corners */
+    font-size: var(--font-size-body); /* Font size */
+    color: var(--color-text); /* Font color */
+    margin-bottom: 15px; /* Spacing below inputs */
+
+}
+
+.form-container input::placeholder,
+.form-container textarea::placeholder {
+    color: #aaa; /* Light color for placeholders */
+    opacity: 1; /* Ensure placeholder is fully opaque */
+}
+
+/* Focus Styles */
+.form-container input:focus,
+.form-container textarea:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: var(--color-secondary); /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 126, 255, 0.5); /* Add shadow on focus */
+}
+/* Button Styling */
+.form-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: var(--font-poppins);
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-bold);
+    color: #fff;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: var(--border-radius-card);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.form-button:hover {
+    background-color: var(--color-highlight);
+    color: var(--color-text);
+}

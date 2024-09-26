@@ -1,132 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson Plan Form</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST TEST TEST</title>
 
     <!-- Include TinyMCE from the official CDN -->
-    <script src="https://cdn.tiny.cloud/1/7p0hw9eejcycl2xv81k4j8dugz5h268xxbmbqqt2zpsrlgyh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'lists link',
-            toolbar: 'undo redo | bold italic | bullist numlist | link',
-        });
-    </script>
 
-    <!-- CSS Styles -->
-    <style>
-        /* CSS styles using root variables */
-        :root {
-            --font-oswald: "Oswald", sans-serif;
-            --font-poppins: "Poppins", sans-serif;
-            --font-abel: "Abel", sans-serif;
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMzB1JIqL2AG/pBBVj3tW8eHj14OOxv+5i6eb+T"
+      crossorigin="anonymous" />
 
-            --color-primary: #e91a1a;
-            --color-secondary: #407cdc;
-            --color-text: #123456;
-            --color-highlight: #d4af37;
-            --gradient-color1: #d4af37;
-            --gradient-color2: #fedc69;
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="assets/css/form-style.css" />
+    <link rel="stylesheet" href="assets/css/main-style.css" />
+    <link rel="stylesheet" href="assets/css/injected-container.css" />
+  </head>
 
-            --font-size-title: 35px;
-            --font-size-h2: 28px;
-            --font-size-h3: 23px;
-            --font-size-h4: 20px;
-            --font-size-body: 12px;
-            --font-size-meta: 9px;
+  <body>
+    <form
+      class="form-container"
+      id="lesson-plan-form"
+      action="#"
+      method="POST"
+      onsubmit="injectFormData(); return false;">
+      <h1>Lesson Plan Form</h1>
+      <label for="lesson-title">Lesson Title (*)</label>
+      <input type="text" id="lesson-title" name="lesson-title" placeholder="Lesson Title" required />
 
-            --font-weight-light: 100;
-            --font-weight-medium: 400;
-            --font-weight-bold: 900;
+      <label for="lesson-subtopic">Lesson Subtopic (*)</label>
+      <input type="text" id="lesson-subtopic" name="lesson-subtopic" placeholder="Lesson Subtopic" required />
 
-            --border-radius-card: 5px;
-            --padding-general: 5px 15px 15px 15px;
-            --divider-thickness: 1px;
-            --tag-padding: 15px;
-        }
-
-        body {
-            font-family: var(--font-poppins);
-            color: var(--color-text);
-            padding: var(--padding-general);
-            font-weight: var(--font-weight-light);
-        }
-
-        h1 {
-            font-family: var(--font-oswald);
-            font-size: var(--font-size-title);
-            color: var(--color-primary);
-        }
-
-        h2, h3, h4 {
-            font-family: var(--font-abel);
-            text-transform: uppercase;
-        }
-
-        h2 {
-            font-size: var(--font-size-h2);
-            color: var(--color-secondary);
-        }
-
-        form {
-            padding: var(--padding-general);
-            background-color: #f9f9f9;
-            border-radius: var(--border-radius-card);
-        }
-
-        label {
-            font-family: var(--font-abel);
-            font-size: var(--font-size-h4);
-            color: var(--color-secondary);
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: var(--border-radius-card);
-            border: 1px solid #ccc;
-            font-family: var(--font-poppins);
-        }
-
-        .divider {
-            border: var(--divider-thickness) solid;
-            background: linear-gradient(90deg, var(--gradient-color1), var(--gradient-color2), var(--gradient-color1));
-            margin: 20px 0;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: var(--color-primary);
-            color: white;
-            font-family: var(--font-oswald);
-            border: none;
-            border-radius: var(--border-radius-card);
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: var(--color-highlight);
-        }
-    </style>
-</head>
-<body>
-
-<h1>Lesson Plan Form</h1>
-
-<form action="#" method="POST">
-    <label for="lesson-title">Lesson Title (required)</label>
-    <input type="text" id="lesson-title" name="lesson-title" placeholder="Lesson Title" required>
-
-    <label for="lesson-subtopic">Lesson Subtopic (required)</label>
-    <input type="text" id="lesson-subtopic" name="lesson-subtopic" placeholder="Lesson Subtopic" required>
-
-    <label for="learning-group">Learning Group (required)</label>
-    <select id="learning-group" name="learning-group" multiple required>
+      <label for="learning-group">Learning Group (*)</label>
+      <select class="example-select" id="learning-group" name="learning-group" multiple required>
         <option value="K2">K2</option>
         <option value="K3">K3</option>
         <option value="P1">P1</option>
@@ -135,10 +43,10 @@
         <option value="P4">P4</option>
         <option value="P5">P5</option>
         <option value="P6">P6</option>
-    </select>
+      </select>
 
-    <label for="subject-relevance">Subject Relevance (required)</label>
-    <select id="subject-relevance" name="subject-relevance" multiple required>
+      <label for="subject-relevance">Subject Relevance (*)</label>
+      <select class="example-select" id="subject-relevance" name="subject-relevance" multiple required>
         <option value="Computer Science">Computer Science</option>
         <option value="Digital Citizenship">Digital Citizenship</option>
         <option value="Mathematics">Mathematics</option>
@@ -148,125 +56,218 @@
         <option value="Civics and Culture">Civics and Culture</option>
         <option value="Social Studies">Social Studies</option>
         <option value="Arts">Arts</option>
-    </select>
+      </select>
 
-    <div class="divider"></div>
+      <div class="divider"></div>
 
-    <h2>Section 1 - Keywords and Vocabulary</h2>
-    <label for="input-keywords">Keywords</label>
-    <textarea id="input-keywords" name="input-keywords" placeholder="Keywords" rows="10" cols="50"></textarea>
+      <h2>Part 1: Keywords and Vocabulary</h2>
+      <label for="input-keywords">Keywords</label>
+      <textarea
+        id="input-keywords"
+        name="input-keywords"
+        placeholder="Keywords (Use html here, structure using ol, ul, and p tags)"
+        rows="5"
+        cols="50"></textarea>
 
-    <h2>Section 2 - Brief Overview and Objectives</h2>
-    <label for="input-overview">Overview</label>
-    <textarea id="input-overview" name="input-overview" placeholder="Overview" rows="10" cols="50"></textarea>
+      <h2>Part 2: Brief Overview and Objectives</h2>
+      <label for="input-overview">Overview</label>
+      <textarea
+        id="input-overview"
+        name="input-overview"
+        placeholder="Overview (Use html here, structure using ol, ul, and p tags)"
+        rows="5"
+        cols="50"></textarea>
 
-    <label for="input-smart-objectives">SMART Objectives</label>
-    <textarea id="input-smart-objectives" name="input-smart-objectives" placeholder="SMART Objectives" rows="10" cols="50"></textarea>
+      <label for="input-smart-objectives">SMART Objectives</label>
+      <textarea
+        id="input-smart-objectives"
+        name="input-smart-objectives"
+        placeholder="SMART Objectives (Use html here, structure using ol, ul, and p tags)"
+        rows="5"
+        cols="50"></textarea>
 
-    <div class="divider"></div>
+      <div class="divider"></div>
 
-    <h2>Section 3 - Lesson Proper and Practice</h2>
-    <label for="input-introduction">Lesson Introductions</label>
-    <textarea id="input-introduction" name="input-introduction" placeholder="Lesson Introductions" rows="10" cols="30"></textarea>
+      <h2>Part 3: Lesson Proper and Practice</h2>
+      <label for="input-introduction">Lesson Introductions</label>
+      <textarea
+        id="input-introduction"
+        name="input-introduction"
+        placeholder="Lesson Introductions (Use html here, structure using ol, ul, and p tags)"
+        rows="5"
+        cols="30"></textarea>
 
-    <label for="input-developments">Lesson Developments</label>
-    <textarea id="input-developments" name="input-developments" placeholder="Lesson Developments" rows="10" cols="30"></textarea>
+      <label for="input-developments">Lesson Developments</label>
+      <textarea
+        id="input-developments"
+        name="input-developments"
+        placeholder="Lesson Developments (Use html here, structure using ol, ul, and p tags)"
+        rows="5"
+        cols="30"></textarea>
 
-    <label for="input-assessments">Formative Assessments</label>
-    <textarea id="input-assessments" name="input-assessments" placeholder="Formative Assessments" rows="10" cols="30"></textarea>
+      <label for="input-assessments">Formative Assessments</label>
+      <textarea
+        id="input-assessments"
+        name="input-assessments"
+        placeholder="Formative Assessments (Use html here, structure using ol, ul, and p tags)"
+        rows="5"
+        cols="30"></textarea>
 
-    <label for="input-differentiations">Learning Differentiations</label>
-    <textarea id="input-differentiations" name="input-differentiations" placeholder="Learning Differentiations" rows="10" cols="30"></textarea>
+      <label for="input-differentiations">Learning Differentiations</label>
+      <textarea
+        id="input-differentiations"
+        name="input-differentiations"
+        placeholder="Learning Differentiations (Use html here, structure using ol, ul, and p tags)"
+        rows="5"
+        cols="30"></textarea>
 
-    <div class="divider"></div>
+      <div class="divider"></div>
 
-    <h2>Section 4 - Lesson Closure</h2>
-    <label for="input-closure">Lesson Closure</label>
-    <textarea id="input-closure" name="input-closure" placeholder="Lesson Closure" rows="10" cols="30"></textarea>
+      <h2>Part 4: Lesson Closure</h2>
+      <label for="input-closure">Lesson Closure</label>
+      <textarea
+        id="input-closure"
+        name="input-closure"
+        placeholder="Lesson Closure (Use html here, structure using ol, ul, and p tags)"
+        rows="5"
+        cols="30"></textarea>
 
-    <h2>Section 5 - Lesson Integration</h2>
-    <label for="input-integration">Lesson Integration</label>
-    <textarea id="input-integration" name="input-integration" placeholder="Lesson Integration" rows="10" cols="30"></textarea>
+      <h2>Part 5: Lesson Integration</h2>
+      <label for="input-integration">Lesson Integration</label>
+      <textarea
+        id="input-integration"
+        name="input-integration"
+        placeholder="Lesson Integration (Use html here, structure using ol, ul, and p tags)"
+        rows="5"
+        cols="30"></textarea>
 
-    <div class="divider"></div>
+      <div class="divider"></div>
 
-    <h2>Section 6 - Lesson Reflections</h2>
-    <label for="input-reflections">Lesson Reflections</label>
-    <textarea id="input-reflections" name="input-reflections" placeholder="Lesson Reflections" rows="10" cols="30"></textarea>
-    
-    <br>
-    <button type="submit">INJECT HTML</button>
-</form>
+      <h2>Part 6: Lesson Reflections</h2>
+      <label for="input-reflections">Lesson Reflections</label>
+      <textarea
+        id="input-reflections"
+        name="input-reflections"
+        placeholder="Lesson Reflections (Use html here, structure using ol, ul, and p tags)"
+        rows="5"
+        cols="30"></textarea>
 
-<!-- TEMPLATE -->
-        <div id="template">
-        <h1>Lesson Plan</h1>
+      <br />
+      <button class="form-button" type="submit">INJECT HTML</button>
+    </form>
+
+    <!-- TEMPLATE 2 -->
+    <div id="template" class="inject-container">
+      <hr />
+      <h2>Lesson Guide | Lesson Plan</h2>
+      <div class="lesson-metadata">
+        <p class="title"><span id="inject-title"></span></p>
+        <p class="subtitle">
+          SUBTOPIC: <strong><span id="inject-subtopic"></span></strong>
+        </p>
+      </div>
+
+      <p class="lesson-metadata">
+        <br />LEARNING GROUP:
+        <strong><span id="inject-group"></span></strong>
+        <br />SUBJECT RELEVANCE: <strong><span id="inject-subject"></span></strong>
+      </p>
+
+      <section id="section1">
+        <h5>Section 1: Keywords and Vocabulary</h5>
+        <hr />
+        <div>
+          <span id="inject-keywords"></span>
+        </div>
         <div class="divider"></div>
+      </section>
 
-        <p><strong>Title:</strong> <span id="inject-title"></span></p>
-        <p><strong>Sub-Topic:</strong> <span id="inject-subtopic"></span></p>
+      <section id="section2">
+        <h5>Section 2: Brief Overview and Smart Objectives</h5>
+        <hr />
+        <div>
+          <span id="inject-overview"></span>
+        </div>
+        <h6>Smart Objectives</h6>
+        <div>
+          <span id="inject-objectives"></span>
+        </div>
+      </section>
 
-        <h3>SECTION 1 - Keywords and Vocabulary</h3>
-        <p><strong>Keywords:</strong> <span id="inject-keywords"></span></p>
+      <section id="section3">
+        <h5>Section 3: Lesson Proper and Practice</h5>
+        <hr />
+        <h6>Introduction</h6>
+        <div><span id="inject-introduction"></span></div>
+        <h6>Lesson Development</h6>
+        <div><span id="inject-developments"></span></div>
+        <h6>Formative Assessments</h6>
+        <div><span id="inject-assessments"></span></div>
+        <h6>Learning Differentiation</h6>
+        <div><span id="inject-differentiations"></span></div>
+      </section>
 
-        <h3>SECTION 2 - Brief Overview and Objectives</h3>
-        <p><strong>Overview:</strong> <span id="inject-overview"></span></p>
-        <p><strong>SMART Objectives:</strong> <span id="inject-objectives"></span></p>
+      <section id="section4">
+        <h5>Section 4: Lesson Closure</h5>
+        <hr />
+        <div><span id="inject-closure"></span></div>
+        <div class="divider"></div>
+      </section>
 
-        <h3>SECTION 3 - Lesson Proper and Practice</h3>
-        <p><strong>Lesson Introductions:</strong> <span id="inject-introduction"></span></p>
-        <p><strong>Lesson Developments:</strong> <span id="inject-developments"></span></p>
-        <p><strong>Formative Assessments:</strong> <span id="inject-assessments"></span></p>
-        <p><strong>Learning Differentiations:</strong> <span id="inject-differentiations"></span></p>
+      <section id="section5">
+        <h5>Section 5: Lesson Integration</h5>
+        <hr />
+        <div><span id="inject-integration"></span></div>
+      </section>
 
-        <h3>SECTION 4 - Lesson Closure</h3>
-        <p><strong>Lesson Closure:</strong> <span id="inject-closure"></span></p>
-
-        <h3>SECTION 5 - Lesson Integration</h3>
-        <p><strong>Lesson Integration:</strong> <span id="inject-integration"></span></p>
-
-        <h3>SECTION 6 - Lesson Reflections</h3>
-        <p><strong>Lesson Reflections:</strong> <span id="inject-reflections"></span></p>
+      <div class="reflection-section">
+        <h5>Section 6: Lesson Reflection</h5>
+        <hr />
+        <div><span id="inject-reflections"></span></div>
+      </div>
+      <hr />
+      <button class="form-button">SHOW CODE</button> <button class="form-button">PRINT</button>
     </div>
 
     <script>
-        // A function to inject form data into the template
-        function injectFormData() {
-            // Get form data (replace this with actual form values from your form)
-            const lessonTitle = document.getElementById('lesson-title').value;
-            const lessonSubtopic = document.getElementById('lesson-subtopic').value;
-            const keywords = document.getElementById('input-keywords').value;
-            const overview = document.getElementById('input-overview').value;
-            const objectives = document.getElementById('input-smart-objectives').value;
-            const introduction = document.getElementById('input-introduction').value;
-            const developments = document.getElementById('input-developments').value;
-            const assessments = document.getElementById('input-assessments').value;
-            const differentiations = document.getElementById('input-differentiations').value;
-            const closure = document.getElementById('input-closure').value;
-            const integration = document.getElementById('input-integration').value;
-            const reflections = document.getElementById('input-reflections').value;
-
-            // Inject the values into the template
-            document.getElementById('inject-title').textContent = lessonTitle;
-            document.getElementById('inject-subtopic').textContent = lessonSubtopic;
-            document.getElementById('inject-keywords').textContent = keywords;
-            document.getElementById('inject-overview').textContent = overview;
-            document.getElementById('inject-objectives').textContent = objectives;
-            document.getElementById('inject-introduction').textContent = introduction;
-            document.getElementById('inject-developments').textContent = developments;
-            document.getElementById('inject-assessments').textContent = assessments;
-            document.getElementById('inject-differentiations').textContent = differentiations;
-            document.getElementById('inject-closure').textContent = closure;
-            document.getElementById('inject-integration').textContent = integration;
-            document.getElementById('inject-reflections').textContent = reflections;
-        }
-
-        // Optional: You could trigger this on form submit
-        document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-            injectFormData(); // Call the function to inject data
-        });
+      function injectFormData() {
+        // Get form data
+        const lessonTitle = document.getElementById("lesson-title").value;
+        const lessonSubtopic = document.getElementById("lesson-subtopic").value;
+        const selectedLearningGroups = Array.from(document.getElementById("learning-group").selectedOptions)
+          .map((option) => option.value)
+          .join(", ");
+        const selectedSubjects = Array.from(document.getElementById("subject-relevance").selectedOptions)
+          .map((option) => option.value)
+          .join(", ");
+        const keywords = document.getElementById("input-keywords").value;
+        const overview = document.getElementById("input-overview").value;
+        const objectives = document.getElementById("input-smart-objectives").value;
+        const introduction = document.getElementById("input-introduction").value;
+        const developments = document.getElementById("input-developments").value;
+        const assessments = document.getElementById("input-assessments").value;
+        const differentiations = document.getElementById("input-differentiations").value;
+        const closure = document.getElementById("input-closure").value;
+        const integration = document.getElementById("input-integration").value;
+        const reflections = document.getElementById("input-reflections").value;
+        // Inject data into the template as HTML
+        document.getElementById("inject-title").innerHTML = lessonTitle;
+        document.getElementById("inject-subtopic").innerHTML = lessonSubtopic;
+        document.getElementById("inject-group").innerHTML = selectedLearningGroups;
+        document.getElementById("inject-subject").innerHTML = selectedSubjects;
+        document.getElementById("inject-keywords").innerHTML = keywords;
+        document.getElementById("inject-overview").innerHTML = overview;
+        document.getElementById("inject-objectives").innerHTML = objectives;
+        document.getElementById("inject-introduction").innerHTML = introduction;
+        document.getElementById("inject-developments").innerHTML = developments;
+        document.getElementById("inject-assessments").innerHTML = assessments;
+        document.getElementById("inject-differentiations").innerHTML = differentiations;
+        document.getElementById("inject-closure").innerHTML = closure;
+        document.getElementById("inject-integration").innerHTML = integration;
+        document.getElementById("inject-reflections").innerHTML = reflections;
+        // Show the template
+        document.getElementById("template").style.display = "block";
+      }
     </script>
-
-</body>
+  </body>
 </html>
